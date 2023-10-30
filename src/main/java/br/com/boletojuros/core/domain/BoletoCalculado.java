@@ -12,13 +12,12 @@ import java.time.LocalDate;
 @Setter
 @Builder
 public class BoletoCalculado {
-    
+
     private String codigo;
     private BigDecimal valorOriginal;
     private BigDecimal valor;
-
     private LocalDate dataVencimento;
-    private BigDecimal dataPagamento;
+    private LocalDate dataPagamento;
     private BigDecimal juros;
     private TipoBoleto tipo;
 
