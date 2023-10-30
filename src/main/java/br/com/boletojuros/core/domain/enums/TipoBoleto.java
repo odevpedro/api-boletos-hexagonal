@@ -1,4 +1,6 @@
 package br.com.boletojuros.core.domain.enums;
 
-public class TipoBoleto {
+public enum
+TipoBoleto {
+    XPTO, NORMAL
 }
