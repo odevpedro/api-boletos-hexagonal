@@ -7,6 +7,7 @@ import br.com.boletojuros.core.domain.enums.TipoExcecao;
 import br.com.boletojuros.core.exception.ApplicationException;
 import br.com.boletojuros.core.ports.in.CalculoBoletoPort;
 import br.com.boletojuros.core.ports.out.ComplementoBoletoPort;
+import br.com.boletojuros.core.ports.out.SalvarcalculoBoletoPort;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -19,9 +20,11 @@ public class CalcularBoletoUseCase implements CalculoBoletoPort {
 
     private static BigDecimal JUROS_DIARIOS = BigDecimal.valueOf(0.033);
     private final ComplementoBoletoPort complementoBoletoPort;
+    private final SalvarcalculoBoletoPort salvarcalculoBoletoPort;
 
-    public CalcularBoletoUseCase(ComplementoBoletoPort complementoBoletoPort) {
+    public CalcularBoletoUseCase(ComplementoBoletoPort complementoBoletoPort, SalvarcalculoBoletoPort salvarcalculoBoletoPort) {
         this.complementoBoletoPort = complementoBoletoPort;
+        this.salvarcalculoBoletoPort = salvarcalculoBoletoPort;
     }
 
     @Override
@@ -43,7 +46,9 @@ public class CalcularBoletoUseCase implements CalculoBoletoPort {
 
         //TODO - Salvar Boleto
 
-        return null;
+        salvarcalculoBoletoPort.executar(boletoCalculado);
+
+        return boletoCalculado;
     }
 
     private void validar(Boleto boleto){
