@@ -14,10 +14,9 @@
 	<name>boletojuros</name>
 	<description>Aplicação para estudo da arquitetura hexagonal</description>
 	<properties>
-		<java.version>11</java.version>
-		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
-		<spring-cloud.version>2021.0.4</spring-cloud.version>
-
+			<java.version>11</java.version>
+			<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+			<spring-cloud.version>2021.0.4</spring-cloud.version>
 	</properties>
 
 
@@ -45,6 +44,11 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${org.mapstruct.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.mysql</groupId>
