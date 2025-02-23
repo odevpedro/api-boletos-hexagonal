@@ -12,3 +12,7 @@ public interface ComplementoBoletoClient {
     @GetMapping("/{codigo}")
     BoletoDto getBoleto(@PathVariable(value = "codigo") String codigo);
 }
+
+
+// value = "complemento" - ajuda a identificar caso houver mais
+//  url= "${api.boleto}" - define que essa url vem antes de todos

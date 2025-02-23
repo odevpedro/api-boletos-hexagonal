@@ -29,6 +29,7 @@ public class CalcularBoletoUseCase implements CalculoBoletoPort {
 
     @Override
     public BoletoCalculado executar(String codigo, LocalDate dataPagamento) {
+        // TODO - calcular boleto
         var boleto = complementoBoletoPort.executar(codigo);
         var diasVencidos = getDiasVencidos(boleto.getDataVencimento(), dataPagamento);
         var valorJurosDia = JUROS_DIARIOS.multiply(boleto.getValor()).divide(BigDecimal.valueOf(100));
@@ -52,10 +53,7 @@ public class CalcularBoletoUseCase implements CalculoBoletoPort {
     }
 
     private void validar(Boleto boleto){
-        if (boleto.equals(null)){
-            throw new ApplicationException(TipoExcecao.BOLETO_INVALIDO);
-
-        } if (boleto.getTipo() != TipoBoleto.XPTO){
+        if (boleto.getTipo() != TipoBoleto.XPTO){
             throw new ApplicationException(TipoExcecao.TIPO_BOLETO_INVALIDO);
         }
 
