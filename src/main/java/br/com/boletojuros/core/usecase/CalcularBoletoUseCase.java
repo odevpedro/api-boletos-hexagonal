@@ -18,7 +18,7 @@ import java.time.temporal.ChronoUnit;
 @Service
 public class CalcularBoletoUseCase implements CalculoBoletoPort {
 
-    private static BigDecimal JUROS_DIARIOS = BigDecimal.valueOf(0.033);
+    private static final BigDecimal JUROS_DIARIOS = BigDecimal.valueOf(0.033);
     private final ComplementoBoletoPort complementoBoletoPort;
     private final SalvarcalculoBoletoPort salvarcalculoBoletoPort;
 

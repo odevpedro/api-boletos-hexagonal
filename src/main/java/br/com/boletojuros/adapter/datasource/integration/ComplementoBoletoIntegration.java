@@ -4,7 +4,10 @@ import br.com.boletojuros.adapter.datasource.integration.client.ComplementoBolet
 import br.com.boletojuros.adapter.datasource.mapper.BoletoMapper;
 import br.com.boletojuros.core.domain.Boleto;
 import br.com.boletojuros.core.ports.out.ComplementoBoletoPort;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class ComplementoBoletoIntegration implements ComplementoBoletoPort {
 
     private final ComplementoBoletoClient client;

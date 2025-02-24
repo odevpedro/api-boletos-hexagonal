@@ -4,6 +4,7 @@ import br.com.boletojuros.adapter.http.dto.CalculoBoletoRequest;
 import br.com.boletojuros.adapter.http.dto.CalculoBoletoResponse;
 import br.com.boletojuros.adapter.http.mapper.CalculoBoletoMapper;
 import br.com.boletojuros.core.ports.in.CalculoBoletoPort;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +27,7 @@ public class CalculoBoletoController {
 
 
     @PostMapping("/calculo")
+    @Operation(summary = "Calcular juros de um boleto")
     public ResponseEntity<CalculoBoletoResponse> calcularBoleto(@Valid @RequestBody CalculoBoletoRequest boleto) {
         var boletoCalculado = calculoBoletoPort.executar(boleto.getCodigo(), boleto.getDataPagamento());
         return ResponseEntity.ok(mapper.toDto(boletoCalculado));
